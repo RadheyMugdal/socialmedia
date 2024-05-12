@@ -12,7 +12,7 @@ export async function GET(req:NextRequest){
     if(!user) return NextResponse.json({message:"user not found",sucess:false},{status:404})
     const recipent=await UserModel.findById(user_id.toString())
     if(!recipent) return NextResponse.json({message:"user not found",sucess:false},{status:404})
-    if(user.following.includes(recipent._id)) {
+    if(user.following.includes(recipent)) {
         isFollowing=true
     }
     console.log({recipent,isFollowing});
