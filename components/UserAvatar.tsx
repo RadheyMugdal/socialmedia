@@ -1,17 +1,19 @@
 import React from 'react'
 import {User} from "@nextui-org/react";
-const UserAvatar = () => {
+const UserAvatar = ({name,username,id,profilePicture}:{name:string,username:string,id:string,profilePicture:string}) => {
   return (
-   <main className=' flex justify-center items-center'>
-    <User   
-      name="Jane Doe"
-      description="Product Designer"
+   <main className=' flex items-center justify-between w-full'>
+    
+    <User 
+      name={name}
+      description={username}
       avatarProps={{
-        src: "https://i.pravatar.cc/150?u=a04258114e29026702d"
+        style:{objectFit:'contain'},
+        src: profilePicture
       }}
       className=' m-3'
     />
-        <button className=' hover:cursor-pointer  bg-customprimary-200 p-2 hover:bg-customprimary-300 rounded-full ' >Follow</button>
+        <button className=' hover:cursor-pointer text-sm  bg-customprimary-200 p-2 hover:bg-customprimary-300 rounded-full ' >Follow</button>
    </main>
   
   )

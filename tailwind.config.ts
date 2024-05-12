@@ -16,6 +16,7 @@ const config = {
     extend: {
       colors:{
         darkPrimary: '#17131e',
+        darkPrimary2:"#1a1625",
         customprimary: {
           '100': '#20148f',
           '200': '#422d9c',

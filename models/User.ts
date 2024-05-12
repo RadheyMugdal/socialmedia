@@ -5,7 +5,11 @@ export interface Post extends Document{
     imageUrl:string,
     comments:Comment[]
     content:string,
-    likes:number
+    likes:Like[]
+}
+export interface Like extends Document{ 
+    user_id:User,
+    post_id:Post
 }
 export interface Comment extends Document{
     owner:User,
@@ -24,6 +28,8 @@ export interface User extends Document{
     savedPosts:Post[]
     likedPosts:Post[]
     posts:Post[]
+    recentFollowers:User[]
+    profilePicture:string
 
 }
 const UserSchema: Schema<User> =new Schema({
@@ -37,6 +43,7 @@ const UserSchema: Schema<User> =new Schema({
         unique:true,
         match:[/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, "Please fill a valid e-mail address"]
     },
+
     password:{
         type:String,
         required:true
@@ -80,8 +87,17 @@ const UserSchema: Schema<User> =new Schema({
             default:[]
         }
     ],
-    
-
+    recentFollowers:[
+        {
+            type:Schema.Types.ObjectId,
+            ref:"User",
+            default:[]
+        }
+    ],
+    profilePicture:{
+        type:String,
+        default:"https://res.cloudinary.com/dk27cpuh4/image/upload/v1715344128/ukzqdp4dcmdnjtzfiz6e.png"
+    }
 },{createdAt:true,timestamps:true})
 export const UserModel= (mongoose.models.User as Model<User>) || mongoose.model("User",UserSchema); 
 
@@ -103,6 +119,18 @@ const CommentSchema :Schema<Comment>=new Schema({
 export const CommentModel=(mongoose.models.Comment as Model<Comment> ) || mongoose.model("Comment",CommentSchema)
 
 
+const LikeSchema:Schema<Like>=new Schema({
+    user_id:{
+        type:Schema.Types.ObjectId,
+        ref:"User"
+    },
+    post_id:{
+        type:Schema.Types.ObjectId,
+        ref:"Post"
+    }
+},{ createdAt:true,timestamps:true})    
+export const LikeModel=(mongoose.models.Like as Model<Like>) || mongoose.model("Like",LikeSchema)
+
 const PostSchema:Schema<Post>=new Schema({
     owner:{
         type:Schema.Types.ObjectId,
@@ -121,8 +149,18 @@ const PostSchema:Schema<Post>=new Schema({
     content:{
         type:String,
         required:true
-    }
+    },
+    likes:[
+        {
+            type:mongoose.Types.ObjectId,
+            ref:"Like",
+        }
+       
+    ]
 },{ createdAt:true,timestamps:true})
+
+
+
 export const PostModel=(mongoose.models.Post as Model<Post>) || mongoose.model("Post",PostSchema)
 
 

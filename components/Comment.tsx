@@ -2,11 +2,11 @@ import { Avatar } from '@nextui-org/react'
 import {User} from "@nextui-org/react";
 import React from 'react'
 
-const Comment = ({name,time,comment}:{name:string,time:string,comment:string}) => {
+const Comment = ({name,time,comment,profilePicture}:{name:string,time:string,comment:string,profilePicture:string}) => {
   return (
-    <div  className=' flex w-full  items-center justify-between ' >
-    <div className=' flex gap-2 items-center justify-center w-[90%] '>
-    <div className=' w-[40% ]  '>
+    <div  className=' flex w-full  items-center justify-between  m-1' >
+    <div className=' flex gap-2 items-center justify-center w-[100%] '>
+    {/* <div className=' w-[40% ]  '>
 
       <User   
       name={name}
@@ -16,17 +16,19 @@ const Comment = ({name,time,comment}:{name:string,time:string,comment:string}) =
       }}
       className=' '
     />
-    </div>
+    </div> */}
+    <div className=' flex gap-3 items-center p-2'>
+      <Avatar src={profilePicture} className=' w-7 h-7 md:w-9 md:h-9'/>
+      <p className=' text-sm md:text-md' >{name || ""}</p>
+      <p className='  text-xs font-thin' >&#x2022; {time || ""}</p>
+      </div>
     <div  className=' flex-1 flex  p-1'>
 
-    <span className=' ml-2  my-auto'>&#x2022;</span>
-    <p className=' ml-1'>{comment}</p>
+    <span className=' ml-2  '>&#x2022;</span>
+    <p className=' text-sm md:text-md ml-1'>{comment}</p>
     </div>
     </div>
-    <div className='w-[5%]'>
 
-    <img src="/heart.png" alt="like" className=' w-5  h-5 invert hover:cursor-pointer' />
-    </div>
 
     </div>
   )

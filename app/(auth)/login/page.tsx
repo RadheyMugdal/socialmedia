@@ -4,9 +4,10 @@ import { EyeSlashFilledIcon } from "@/components/EyeSlashFilledIcon";
 import { Input, Textarea } from "@nextui-org/react";
 import axios from "axios";
 import Cookies from 'js-cookie';
+import { signIn } from "next-auth/react";
 
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { redirect, useRouter } from "next/navigation";
 
 import React, { FormEvent } from "react";
 
@@ -17,23 +18,26 @@ const Login = () => {
   const [password, setPassword] = React.useState("");
   const toggleVisibility = () => setIsVisible(!isVisible);
 
-  const handleSubmit= async (e:FormEvent)=>{
+  const handleSubmit = async (e:FormEvent) => {
     e.preventDefault();
-    const res= await  axios.post("/api/login",{
-      email,
-      password
-    })
-    if(!res.data.success){
-      alert("Invalid email or password")
-      return
-    }
-    Cookies.set('token', res.data.token);
-    Cookies.set('user', res.data.data);
-    router.push("/")
-    setEmail("")
-    setPassword("")
+      // const res=await fetch("/api/login",{method:"POST",body:JSON.stringify({email,password})})
+      // if(res.status===200){
+      //   console.log(res);
+        
+      //   router.push("/"); 
+      //   setEmail(""); 
+      //   setPassword("");
+      // }else{
+      //   console.log(res);
+        
+      //   console.log("Error in sign in",res)
+      //   throw res
+      // }
+
+      await signIn("credentials", { email, password, redirect: false });
+      router.push("/");
+  };
   
-  }
   return (
     <main className="  bg-darkPrimary  w-screen h-screen flex items-center justify-center">
       <div className=" w-[40%] flex flex-col   items-center justify-center gap-4">
