@@ -1,3 +1,4 @@
+"use client";
 import { Avatar } from '@nextui-org/react';
 import { Chip } from "@nextui-org/react";
 import { Image } from "@nextui-org/react";
