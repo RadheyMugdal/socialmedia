@@ -3,7 +3,7 @@ import React from 'react'
 
 const PostSkeleton = () => {
   return (
-    <div className="w-[90%] md:w-[80%]  mx-auto mt-6  rounded-lg  bg-darkPrimary ">
+    <div className="w-[90%] md:w-[80%]  mx-auto mt-6 no-scrollbar no-scrollbar::-webkit-scrollbar rounded-lg  bg-darkPrimary ">
           <div className="flex gap-3  items-center p-2">
           <Skeleton variant="circular" sx={{bgcolor:"darkslateblue"}}   width={50} height={45} />
           <Skeleton variant="text" sx={{bgcolor:"darkslateblue"}}   width={80} height={20} />
