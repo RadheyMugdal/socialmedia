@@ -32,13 +32,13 @@ const Rightbar = () => {
       <div className=' p-6 pt-3 pb-0'>
         <h1 className=' text-start text-xl' >Suggested for you</h1>
       </div>
-      <div className=' p-6 pt-0 w-full h-screen flex flex-col  overflow-y-scroll '>
+      <div className=' p-6 pt-0 w-full h-screen flex flex-col  overflow-y-scroll no-scrollbar '>
       {
         !isLoading  ? users.map((user:any)=>{
           return <UserAvatar key={user._id} name={user.name} profilePicture={"/user.png"} username={user.username} id={user._id} />
         })
         :
-        <div className='p-6 pt-6 w-full h-screen flex flex-col  overflow-y-scroll'>
+        <div className='p-6 pt-6 w-full h-screen flex flex-col  overflow-y-scroll no-scrollbar'>
          <UserSkeleton/>
          <UserSkeleton/>
          <UserSkeleton/>
