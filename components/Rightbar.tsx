@@ -32,30 +32,33 @@ const Rightbar = () => {
       <div className=' p-6 pt-3 pb-0'>
         <h1 className=' text-start text-xl' >Suggested for you</h1>
       </div>
-      <div className=' p-6 pt-0 w-full h-screen flex flex-col  overflow-y-scroll no-scrollbar .no-scrollbar::-webkit-scrollbar '>
+      <div className=' p-6 pt-0 w-full h-full flex flex-col  overflow-y-scroll no-scrollbar .no-scrollbar::-webkit-scrollbar '>
       {
         !isLoading  ? users.map((user:any)=>{
           return <UserAvatar key={user._id} name={user.name} profilePicture={"/user.png"} username={user.username} id={user._id} />
         })
         :
-        <div className='p-6 pt-6 w-full h-screen flex flex-col  overflow-y-scroll no-scrollbar .no-scrollbar::-webkit-scrollbar'>
+        <div className='p-6 pt-6 w-full h-full flex flex-col  overflow-y-scroll no-scrollbar .no-scrollbar::-webkit-scrollbar'>
          <UserSkeleton/>
          <UserSkeleton/>
          <UserSkeleton/>
          <UserSkeleton/>
          <UserSkeleton/>
-         <UserSkeleton/>
-         <UserSkeleton/>
-         <UserSkeleton/>
+  
         </div>
         
       }
-      <div className=' w-full h-screen flex flex-col items-center  justify-center '>
+     
       {
+         <div className=' w-full h-screen flex flex-col items-center  justify-center '>
+          {
+
         !isLoading && users.length===0 && <p>No suggestions found</p>
+          }
+        </div>
       }
       </div>
-      </div>
+     
       
       
     </main>

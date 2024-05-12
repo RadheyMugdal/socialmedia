@@ -46,9 +46,41 @@ const Page: React.FC = () => {
 
   if (isLoading) {
     return (
-      <main className='w-[80%] h-screen mx-auto'>
-        {/* Skeleton loading UI */}
-      </main>
+      <main className=' w-[80%] h-full mx-auto '>
+      <div className=' flex p-10 flex-col md:flex-row  items-center' >
+      <div className=' md:pr-16  ' >
+        <Skeleton variant="circular" sx={{bgcolor:"darkslateblue"}} width={125} height={125}  />
+      </div>
+      <div className=' '>
+        <div className='flex items-center justify-center md:justify-normal   gap-16'>
+        <Skeleton variant="text" sx={{bgcolor:"darkslateblue"}} width={140} height={20} className=' w-7 '  />
+
+        </div>
+      <div className=' flex gap-3 mt-3 mx-auto '>
+      <Skeleton variant="text" sx={{bgcolor:"darkslateblue"}}  height={20} className='  w-24 md:w-32'  />
+        <Skeleton variant="text" sx={{bgcolor:"darkslateblue"}} height={20} className='  w-24 md:w-32' />
+        <Skeleton variant="text" sx={{bgcolor:"darkslateblue"}}  height={20} className='  w-24 md:w-32'  />
+      </div>
+      <div className=' mt-4'>
+      <Skeleton variant="text" sx={{bgcolor:"darkslateblue"}} width={300} height={20} className='  w-32 md:w-44'  />
+      </div>
+      </div>
+      </div>
+      <div className="flex  justify-center items-center  flex-col mx-auto">
+        <div className=' flex '>
+        <Skeleton variant="text" sx={{bgcolor:"darkslateblue"}} width={100} height={20}  className=' mx-2' />
+      <Skeleton variant="text" sx={{bgcolor:"darkslateblue"}} width={100} height={20} className=' mx-2'  />
+        </div>
+        <div className=' w-full mt-3 '>
+        <div className='  mx-auto flex flex-wrap gap-5 p-2 justify-center ' >
+        <Skeleton variant="rectangular" sx={{bgcolor:"darkslateblue"}} width={200} height={250}   />
+        <Skeleton variant="rectangular" sx={{bgcolor:"darkslateblue"}} width={200} height={250}   />
+        <Skeleton variant="rectangular" sx={{bgcolor:"darkslateblue"}} width={200} height={250}   />
+        </div>
+        </div>
+      </div>
+      
+    </main>
     );
   }
 

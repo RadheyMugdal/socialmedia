@@ -39,10 +39,10 @@ const Notifications = () => {
     getrecentfollowers()
 
   },[session])
-  if(recentfollowers.length==0) return <div className=' w-[100%] md:w-[60%]  h-full mx-auto ' >
+  if(recentfollowers.length==0) return <div className=' w-[100%] md:w-[60%]  mx-auto ' >
     <h1 className=' text-2xl font-extrabold text-center mt-5'>Follow requests</h1>
       <hr className=' w-[100%] mx-auto mt-4' />
-      <div className=' h-full
+      <div className='
       '>
         <div className=' w-full h-full flex justify-center items-center'>
         <h1 className=' text-2xl font-extrabold text-center mt-5'>No follow requests</h1>
