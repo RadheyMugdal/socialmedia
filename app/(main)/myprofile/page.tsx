@@ -53,7 +53,7 @@ const Page: React.FC = () => {
   }
 
   return (
-    <main className='w-[80%] h-screen mx-auto'>
+    <main className='w-[80%] h-full mx-auto'>
       <div className='flex p-10 flex-col md:flex-row items-center'>
         <div className='md:pr-16'>
           <Avatar src={session?.user?.profilePicture} className="w-32 h-32 " />

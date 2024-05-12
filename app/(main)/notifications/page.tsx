@@ -39,7 +39,7 @@ const Notifications = () => {
     getrecentfollowers()
 
   },[session])
-  if(recentfollowers.length==0) return <div className=' w-[100%] md:w-[60%]  h-screen mx-auto ' >
+  if(recentfollowers.length==0) return <div className=' w-[100%] md:w-[60%]  h-full mx-auto ' >
     <h1 className=' text-2xl font-extrabold text-center mt-5'>Follow requests</h1>
       <hr className=' w-[100%] mx-auto mt-4' />
       <div className=' h-full
@@ -51,7 +51,7 @@ const Notifications = () => {
       </div>
   </div>
   return (
-    <div className=' w-[100%] md:w-[60%]  h-screen mx-auto ' >
+    <div className=' w-[100%] md:w-[60%]  h-full mx-auto ' >
       <h1 className=' text-2xl font-extrabold text-center mt-5'>Follow requests</h1>
       <hr className=' w-[100%] mx-auto mt-4' />
       {

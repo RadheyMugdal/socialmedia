@@ -14,7 +14,7 @@ const Create = () => {
   }
 
   return (
-    <div className=' w-full h-screen items-center justify-center flex  '>
+    <div className=' w-full h-full items-center justify-center flex  '>
     {/* <CldUploadButton uploadPreset={process.env.NEXT_PUBLIC_CLOUDINARY_PRESET_NAME}/> */}
     
     <CldUploadWidget signatureEndpoint="/api/sign-cloudinary-params" onSuccess={(result:any, { widget }) => {

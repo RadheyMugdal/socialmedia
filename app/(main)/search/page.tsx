@@ -32,7 +32,7 @@ const Search = () => {
     return ()=>clearTimeout(data)
   },[search])
   return (
-    <div  className=' w-[100%] md:[80%] flex flex-col  items-center mx-auto h-screen ' >
+    <div  className=' w-[100%] md:[80%] flex flex-col  items-center mx-auto h-full ' >
       <div className=' flex justify-center items-center bg-darkPrimary w-[80%] md:w-[60%] rounded-3xl text-xl mt-4' >
         <SearchIcon  className='  w-12' />
       <input type="search" name="" value={search} onChange={(e)=>setSearch(e.target.value)} id="" placeholder='Enter username' className=' w-full h-full p-3 rounded-3xl bg-darkPrimary focus:outline-none  ' />
