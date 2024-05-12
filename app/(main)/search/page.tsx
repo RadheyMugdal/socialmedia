@@ -37,7 +37,7 @@ const Search = () => {
         <SearchIcon  className='  w-12' />
       <input type="search" name="" value={search} onChange={(e)=>setSearch(e.target.value)} id="" placeholder='Enter username' className=' w-full h-full p-3 rounded-3xl bg-darkPrimary focus:outline-none  ' />
       </div>
-      <div className=' w-[80%] md:w-[60%] overflow-y-scroll flex flex-col  items-start'>
+      <div className=' w-[80%] md:w-[60%] overflow-y-scroll.no-scrollbar::-webkit-scrollbar  no-scrollbar flex flex-col  items-start'>
        { userdata.length!=0 &&
           userdata.map((userFW:any)=>{
            if(user){

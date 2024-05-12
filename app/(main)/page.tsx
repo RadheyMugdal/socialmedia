@@ -43,7 +43,8 @@ export default function Home() {
 
   if (loading) {
       return (
-        <main className="w-[100%] h-screen md:w-[65%] overflow-y-scroll mx-auto">
+        <main className="w-[100%] h-full md:w-[65%] overflow-y-scroll no-scrollbar
+         mx-auto">
 
           <PostSkeleton />
         </main>
@@ -57,7 +58,7 @@ export default function Home() {
           dataLength={posts.length}
           next={fetchMoreData}
           endMessage={<p className=" text-center">No more posts</p>}
-          className="w-[100%] h-screen md:w-[65%] overflow-y-scroll mx-auto"
+          className="w-[100%] h-screen md:w-[65%] overflow-y-scroll no-scrollbar mx-auto"
           hasMore={hasMore}
           loader={<Skeleton variant="rectangular"   height={200} />}
       >         
