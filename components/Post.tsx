@@ -140,7 +140,7 @@ const Post = ({imageUrl,description,username,posttime,id,isLiked,profilePicture,
           
             {
               comments.length >0 ?
-              <div  className=' overflow-y-scroll p-4 '>
+              <div  className=' overflow-y-scroll .no-scrollbar::-webkit-scrollbar no-scrollbar p-4 '>
               {comments.map((comment:any)=>{
                 return <Comment name={comment.username} time={comment.time} comment={comment.text} key={comment._id} profilePicture={comment.profilePicture} />
               })}
