@@ -1,5 +1,5 @@
 import dbConnect from "@/lib/dbConnect";
-import { LikeModel, PostModel } from "@/models/User";
+import { LikeModel, PostModel, UserModel } from "@/models/User";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(req:NextRequest){
@@ -9,6 +9,8 @@ export async function POST(req:NextRequest){
     await dbConnect();
 
     try {
+        const user=await UserModel.findById(user_id);
+        if(!user) return NextResponse.json({message: "User not found"}, {status: 404});
         const like = await LikeModel.create({post_id,user_id});
         if(!like) return NextResponse.json({message: "Like failed"}, {status: 500});
 
@@ -19,7 +21,8 @@ export async function POST(req:NextRequest){
         if (!post.likes || !Array.isArray(post.likes)) {
             post.likes = [];
         }
-
+        user.likedPosts.push(post);
+        await user.save();
         post.likes.push(like);
         await post.save();
 
