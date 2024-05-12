@@ -84,7 +84,7 @@ const Login = () => {
             <button className=" w-[70%] bg-customprimary-300 p-3 mt-5 rounded-md text-xl">Sign in</button>
           </form>
           <p className=" text-center">or</p>
-          <p className=" text-center text-md  mt-2">Don't have an account? <span className=" text-blue-500 cursor-pointer"> <Link  href='/register' >Sign up</Link> </span> </p>
+          <p className=" text-center text-md  mt-2">Don&#39;t have an account? <span className=" text-blue-500 cursor-pointer"> <Link  href='/register' >Sign up</Link> </span> </p>
         </div>
       </div>
     </main>
