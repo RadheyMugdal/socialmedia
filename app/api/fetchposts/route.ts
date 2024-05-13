@@ -4,11 +4,10 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(req: NextRequest){
     const params=req.nextUrl.searchParams;
-    const limit=parseInt(params.get('limit') || '10');
-    const page=parseInt(params.get('page') || '1');
+    const limit=parseInt(params.get('limit') as string);
+    const page=parseInt(params.get('page') as string);
     const userId=params.get('userId');
 
-    try {
         const posts = await PostModel.aggregate([
             {
                 $lookup: {
@@ -46,8 +45,5 @@ export async function GET(req: NextRequest){
 
         console.log(posts); // Check if the posts are retrieved properly
         return NextResponse.json({ message: "Posts fetched", data: posts, success: true }, { status: 200 });
-    } catch (error) {
-        console.error(error);
-        return NextResponse.json({ message: "Error fetching posts", success: false }, { status: 500 });
-    }
+
 }
