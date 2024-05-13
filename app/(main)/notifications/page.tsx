@@ -62,8 +62,8 @@ const Notifications = () => {
           <User 
           classNames={
             {
-              name: 'text-sm md:text-md',
-              base: 'text-sm md:text-md',
+              name: 'text-sm md:text-md lg:text-lg',
+              base: 'text-sm md:text-md lg:text-lg',
             }
           }  
           name={follower.username}
@@ -72,7 +72,7 @@ const Notifications = () => {
           }}
           
         />
-        <p  className=' ml-5   text-xs md:text-md'> <span>&#8226;</span>Recentlly started following you</p>
+        <p  className=' ml-5   text-xs md:text-md lg:text-lg'> <span>&#8226;</span>Recentlly started following you</p>
             </div>
             <div className=' flex items-center justify-center gap-4'>
 

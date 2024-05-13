@@ -90,7 +90,7 @@ const Leftbar = () => {
        name={session?.user.name}
        description={(
          <LinkUI href="/myprofile" size="sm" >
-           {`@${session?.user?.name}`}
+           {`@${session?.user?.username}`}
          </LinkUI>
        )}
        avatarProps={{
