@@ -35,7 +35,7 @@ const Rightbar = () => {
       <div className=' p-6 pt-0 w-full h-full flex flex-col  overflow-y-scroll no-scrollbar .no-scrollbar::-webkit-scrollbar '>
       {
         !isLoading  ? users.map((user:any)=>{
-          return <UserAvatar key={user._id} name={user.name} profilePicture={"/user.png"} username={user.username} id={user._id} />
+          return <UserAvatar key={user._id} name={user.name} profilePicture={user.profilePicture} username={user.username} id={user._id} />
         })
         :
         <div className='p-6 pt-6 w-full h-full flex flex-col  overflow-y-scroll no-scrollbar .no-scrollbar::-webkit-scrollbar'>
