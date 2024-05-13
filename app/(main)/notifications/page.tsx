@@ -51,7 +51,7 @@ const Notifications = () => {
       </div>
   </div>
   return (
-    <div className=' w-[100%] md:w-[60%]  h-full mx-auto ' >
+    <div className=' w-[100%] md:w-[60%]  h-screen md:h-full mx-auto ' >
       <h1 className=' text-2xl font-extrabold text-center mt-5'>Follow requests</h1>
       <hr className=' w-[100%] mx-auto mt-4' />
       {
@@ -59,18 +59,24 @@ const Notifications = () => {
           return (
             <div className=' flex  items-center m-7 w-[100%] justify-between mx-auto' key={follower._id}>
             <div className=' flex  items-center'  >
-          <User   
+          <User 
+          classNames={
+            {
+              name: 'text-sm md:text-md',
+              base: 'text-sm md:text-md',
+            }
+          }  
           name={follower.username}
           avatarProps={{
             src: "https://i.pravatar.cc/150?u=a04258114e29026702d"
           }}
           
         />
-        <p  className=' ml-5  text-sm'> <span>&#8226;</span>Recentlly started following you</p>
+        <p  className=' ml-5   text-xs md:text-md'> <span>&#8226;</span>Recentlly started following you</p>
             </div>
             <div className=' flex items-center justify-center gap-4'>
 
-        <div className=' flex'  >
+        <div className=' flex text-xs md:text-md'  >
           <button className='bg-green-500 rounded-full flex justify-center items-center gap-1 p-2 text-white' onClick={()=>handleFollowback(follower._id)}>
           <Check className=' h-7 w-5 md:h-5 md:w-5 bg-green-500 rounded-full' />
           Follow back

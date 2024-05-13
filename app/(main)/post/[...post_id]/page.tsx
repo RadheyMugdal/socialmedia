@@ -57,7 +57,7 @@ const Page = ({ params }: { params: { post_id: string } }) => {
   }, [post]);
 
   return (
-    <main className="w-[100%] h-full md:w-[65%] mx-auto">
+    <main className="w-[100%] h-screen md:h-full md:w-[65%] mx-auto">
       {loading ?(
         <PostSkeleton/>
       ) : (

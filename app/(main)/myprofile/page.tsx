@@ -46,7 +46,7 @@ const Page: React.FC = () => {
 
   if (isLoading) {
     return (
-      <main className=' w-[80%] h-full mx-auto '>
+      <main className=' w-[80%] h-screen md:h-full mx-auto '>
       <div className=' flex p-10 flex-col md:flex-row  items-center' >
       <div className=' md:pr-16  ' >
         <Skeleton variant="circular" sx={{bgcolor:"darkslateblue"}} width={125} height={125}  />
