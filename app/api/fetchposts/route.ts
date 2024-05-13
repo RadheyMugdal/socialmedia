@@ -1,3 +1,4 @@
+import dbConnect from "@/lib/dbConnect";
 import { PostModel } from "@/models/User";
 import mongoose from "mongoose";
 import { NextRequest, NextResponse } from "next/server";
@@ -7,7 +8,7 @@ export async function GET(req: NextRequest){
     const limit=parseInt(params.get('limit') as string);
     const page=parseInt(params.get('page') as string);
     const userId=params.get('userId');
-
+    await dbConnect()
         const posts = await PostModel.aggregate([
             {
                 $lookup: {
