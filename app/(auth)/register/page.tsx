@@ -7,10 +7,13 @@ import Link from "next/link";
 import axios from "axios";
 import React, { FormEvent, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
+import { RegisterSchama } from "@/schema/RegisterSchema";
+import toast from "react-hot-toast";
 
 const Register = () => {
   const [uploadedImageUrl, setUploadedImageUrl] = useState<string>("");
   const [isVisible, setIsVisible] = React.useState(false);
+  const [errors, setErrors] = useState<any[]>([]);
   const [data, setData] = useState({
     name: "",
     username: "",
@@ -22,25 +25,29 @@ const Register = () => {
   const toggleVisibility = () => setIsVisible(!isVisible);
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
+    console.log("parsing");
+    
 
-      const res = await axios.post("/api/register", {
-        name: data.name,
-        email: data.email,
-        username: data.username,
-        password: data.password,
-        bio: data.bio,
-        profilePicture:uploadedImageUrl
-      });
-      if (res.status === 200) {
-        await router.push("/login");
-      } else {
-        console.log(data);
-      }
+        const res = await axios.post("/api/register", {
+          name: data.name,
+          email: data.email,
+          username: data.username,
+          password: data.password,
+          bio: data.bio,
+          profilePicture:uploadedImageUrl
+        });
+        if (res.status === 200) {
+          await router.push("/login");
+        } else {
+          toast.error(res.data.message)
+          console.log(data);
+        }
+      
     
   };
   return (
     <main className="  bg-darkPrimary  w-screen  flex items-center justify-center">
-      <div className=" w-[40%] flex flex-col   items-center justify-center gap-4">
+      <div className=" w-[100%] md:w-[60%] lg:w-[40%] flex flex-col   items-center justify-center gap-4">
         <h1 className=" text-4xl font-extrabold ">Register</h1>
         <div className=" w-full">
           <form
@@ -78,7 +85,7 @@ const Register = () => {
                 }}
               </CldUploadWidget>
             )}
-
+            
             <Input
               isRequired
               type="text"

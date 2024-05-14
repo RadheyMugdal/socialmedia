@@ -40,7 +40,7 @@ const Login = () => {
   
   return (
     <main className="  bg-darkPrimary  w-screen h-screen flex items-center justify-center">
-      <div className=" w-[40%] flex flex-col   items-center justify-center gap-4">
+      <div className=" w-[100%] md:w-[60%] lg:w-[40%] flex flex-col   items-center justify-center gap-4">
         <h1 className=" text-4xl font-extrabold ">Login</h1>
         <div className=" w-full">
           <form
