@@ -66,7 +66,7 @@ export default function Home() {
               {
 
                   posts.length>0 ?posts?.map((post: any) => {
-                      return <Post description={post.content} imageUrl={post.imageUrl} id={post._id} isLiked={false} key={post._id} isSaved={false} posttime="12m" username={post.owner.username} profilePicture={post.owner.profilePicture} />
+                      return <Post description={post.content} imageUrl={post.imageUrl} id={post._id} isLiked={false} key={post._id} isSaved={false} posttime={post.timeDifference} username={post.owner.username} profilePicture={post.owner.profilePicture} />
                   })
                   :
                   <main className="w-full h-screen flex items-center justify-center ">
