@@ -70,7 +70,7 @@ export default function Home() {
                   })
                   :
                   <main className="w-full h-screen flex items-center justify-center ">
-                    <h1 className="  font-extrabold text-3xl">No post to show</h1>
+                    <h1 className="  font-extrabold text-3xl">There are no posts to show</h1>
                  </main>
 
               }
